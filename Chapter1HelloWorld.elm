@@ -42,25 +42,27 @@ program, presented below, shows one way styling the message in a
 custom way. You can see it in action [here](HelloWorld2.html).
 
 % HelloWorld2.elm
-      import Text
+import Text
+import Color
+import Graphics.Element (..)
 
-
-      main : Element
-      main =
-          Text.toText "Hello World"
-              |> Text.color blue
-              |> Text.italic
-              |> Text.bold
-              |> Text.height 60
-              |> Text.leftAligned
+main : Element
+main = Text.fromString "Hello World"
+      |> Text.italic
+      |> Text.bold
+      |> Text.color Color.blue
+      |> Text.height 30
+      |> Text.leftAligned
 
 In order to style to our message, we use functions from the `Text`
-module from Elm’s standard library. The first line: `import Text`
-imports the `Text` module, allowing us to reference its functions in
-our program. We reference a function by prefixing the function name with
-the module name and the dot.
+module from Elm’s standard library. The first import lines: `import Text`,
+`import Color`, `import Graphics.Element (..)` import the modules, 
+allowing us to reference their functions in our program. 
+We reference a function by prefixing the function name with the module
+name and the dot. Forget for now the (..) in last import, it's used to avoid
+names clashing.
 
-The second line is the `main` function type declaration (or in other
+The following line is the `main` function type declaration (or in other
 words, its signature). Signatures are optional and we did not have it
 in our first program. In fact, the first versions of Elm did not even
 provide a way of declaring function signatures. It is however often a
